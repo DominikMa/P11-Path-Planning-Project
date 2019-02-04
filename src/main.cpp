@@ -99,7 +99,7 @@ vector<double> getFrenet(double x, double y, double theta, const vector<double> 
   // filter out messed up data
   double dist_prev_waypoint = distance(x, y, maps_x[prev_wp], maps_y[prev_wp]);
   double dist_next_waypoint = distance(x, y, maps_x[next_wp], maps_y[next_wp]);
-  if (dist_prev_waypoint > 35.0 && dist_next_waypoint > 35.0){
+  if (dist_prev_waypoint > 45.0 && dist_next_waypoint > 45.0){
     return {-1, -1};
   }
 
@@ -252,6 +252,7 @@ int main() {
             vector<double> frenet = getFrenet(i[1], i[2], car_yaw, map_waypoints_x, map_waypoints_y);
             // filter out messed up data
             if((frenet.at(0) == -1 && frenet.at(1) == -1) || i[6] < 0){
+              // std::cout << "Some messed up car data..." << std::endl;
               continue;
             }
             cars.emplace_back(i[0], i[3], i[4], i[5], i[6]);
@@ -371,8 +372,8 @@ int main() {
           double N = (target_dist / (0.02 * speed_mph / 2.24));
           double step_x = target_x / N;
 
-          // Fill up the remaining points. Just predict 35 waypoints in the future
-          for (int i = 0; i <= 35 - previous_path_x.size(); i++) {
+          // Fill up the remaining points. Just predict 30 waypoints in the future
+          for (int i = 0; i <= 30 - previous_path_x.size(); i++) {
             double x_point = (i+1) * step_x;
             double y_point = spline(x_point);
 

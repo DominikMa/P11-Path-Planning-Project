@@ -37,7 +37,7 @@ Vehicle Lane::getNextCar(double s) {
   double dst = 1000.0;
   Vehicle nextCar = Vehicle(-1, 0, 0, 0);
   for (auto &car : cars) {
-    double tmp_dst = car.s - s + 0.1;
+    double tmp_dst = car.s - s + 1.0;
     if (tmp_dst > 0.0 && tmp_dst < dst) {
       nextCar = car;
       dst = tmp_dst;
