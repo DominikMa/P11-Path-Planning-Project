@@ -12,16 +12,16 @@ const double road_max_speed = 49.9;
 const double road_max_speed_mps = road_max_speed / 2.212;
 
 // Set how aggressively we change lanes
-const double change_next_fact = 0.15;
-const double change_previous_fact = 0.25;
+const double change_next_fact = 0.1;
+const double change_previous_fact = 0.2;
 // Set the minimum distance to change into lane
-const double min_change_next_dist = 12.0;
+const double min_change_next_dist = 15.0;
 const double min_change_previous_dist = 10.0;
 // Set mimimum gained speed to change lanes
 const double change_min_speed_diff = 0.3;
 
 // Set number and distance of rough waypoints
-const double waypoint_step_size = 35.0;
+const double waypoint_step_size = 33.0;
 const int waypoint_count = 3;
 
 // Set costs
@@ -30,7 +30,7 @@ const double cost_fact_dist_to_best_lane = 6.0;
 const double cost_fact_change = 0.1;
 
 // Set distance to keep to next car
-const double dist_to_next_car = 20.0;
+const double dist_to_next_car = 15.0;
 
 Road::Road(vector<Vehicle> cars) {
   for (int i = 0; i < laneNumber; i++) {
