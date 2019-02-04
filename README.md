@@ -36,7 +36,7 @@ The planner handles lane changes of other cars well:
 ![](./gifs/P11_6.gif)
 ![](./gifs/P11_10.gif)
 
-Here the planner correctly waits till the cars in the left lane have passed until it tries to change into it:
+Here the planner correctly waits till the cars in the right lane have passed until it tries to change into it:
 
 ![](./gifs/P11_7.gif)
 
