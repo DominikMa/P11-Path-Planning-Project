@@ -372,8 +372,8 @@ int main() {
           double N = (target_dist / (0.02 * speed_mph / 2.24));
           double step_x = target_x / N;
 
-          // Fill up the remaining points. Just predict 30 waypoints in the future
-          for (int i = 0; i <= 30 - previous_path_x.size(); i++) {
+          // Fill up the remaining points. Just predict 25 waypoints in the future
+          for (int i = 0; i <= 25 - previous_path_x.size(); i++) {
             double x_point = (i+1) * step_x;
             double y_point = spline(x_point);
 

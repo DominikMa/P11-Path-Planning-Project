@@ -13,10 +13,10 @@ const double road_max_speed_mps = road_max_speed / 2.212;
 
 // Set how aggressively we change lanes
 const double change_next_fact = 0.1;
-const double change_previous_fact = 0.2;
+const double change_previous_fact = 0.25;
 // Set the minimum distance to change into lane
-const double min_change_next_dist = 15.0;
-const double min_change_previous_dist = 10.0;
+const double min_change_next_dist = 12.0;
+const double min_change_previous_dist = 8.0;
 // Set mimimum gained speed to change lanes
 const double change_min_speed_diff = 0.3;
 
