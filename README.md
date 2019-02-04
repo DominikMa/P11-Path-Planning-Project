@@ -1,8 +1,6 @@
 # Path Planning Project
 
-This repository contains my solution for the project "Path Planning Project" of the Udacity Self-Driving Car Engineer Nanodegree Program. A description of a basic setup can be found in the
-
-[original repository](https://github.com/udacity/CarND-MPC-Project).
+This repository contains my solution for the project "Path Planning Project" of the Udacity Self-Driving Car Engineer Nanodegree Program. A description of a basic setup can be found in the [original repository](https://github.com/udacity/CarND-Path-Planning-Project).
 
 The written code could be found in the files [main.cpp](./src/main.cpp), [vehicle.cpp](./src/vehicle.cpp), [lane.cpp](./src/lane.cpp), [road.cpp](./src/road.cpp) and their header files.
 
