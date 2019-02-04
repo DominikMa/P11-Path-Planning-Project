@@ -7,24 +7,30 @@
 #include <limits>
 #include "road.h"
 
-const double road_max_speed = 49.5;
+// Set the maximum speed of the road
+const double road_max_speed = 49.9;
 const double road_max_speed_mps = road_max_speed / 2.212;
 
-const double change_next_fact = 0.5;
+// Set how aggressively we change lanes
+const double change_next_fact = 0.2;
 const double change_previous_fact = 0.25;
+// Set the minimum distance to change into lane
 const double min_change_next_dist = 8.0;
 const double min_change_previous_dist = 8.0;
+// Set mimimum gained speed to change lanes
+const double change_min_speed_diff = 0.3;
 
-const double change_min_speed_diff = 1.0;
-
-const double waypoint_step_size = 40.0;
+// Set number and distance of rough waypoints
+const double waypoint_step_size = 35.0;
 const int waypoint_count = 3;
 
+// Set costs
 const double cost_fact_speed = 1.0;
-const double cost_fact_dist = 6.0;
+const double cost_fact_dist_to_best_lane = 6.0;
 const double cost_fact_change = 0.1;
 
-const double dist_to_next_car = 15.0;
+// Set distance to keep to next car
+const double dist_to_next_car = 13.0;
 
 Road::Road(vector<Vehicle> cars) {
   for (int i = 0; i < laneNumber; i++) {
@@ -83,7 +89,7 @@ vector<Vehicle> Road::getWaypoints(Vehicle ownCar) {
     double dist_to_fastest = fabs(fastes_lane.number - option_lane.number);
 
     double cost = cost_fact_speed * option_speed
-        - cost_fact_dist * dist_to_fastest
+        - cost_fact_dist_to_best_lane * dist_to_fastest
         - cost_fact_change * fabs(first.d - ownCar.d);
 
     if (cost > best_cost) {
@@ -93,8 +99,6 @@ vector<Vehicle> Road::getWaypoints(Vehicle ownCar) {
   }
 
   best_option.at(0).v = min(max_speed_curren_lane, best_option.at(0).v);
-
-  std::cout << "Target speed: " << best_option.at(0).v * 2.212 << "        \r";
   return best_option;
 }
 
@@ -151,11 +155,11 @@ double Road::getMaxSpeed(Lane lane, double s) {
       double goal_speed = car.v;
       if (diff <= 0) {
         double c;
-        if (diff >= -(dist_to_next_car/10.0)){
+        if (diff >= -(dist_to_next_car/15.0)){
           c = 0.1*diff;
-        } else if (diff >= -(dist_to_next_car/4.0)){
+        } else if (diff >= -(dist_to_next_car/6.0)){
           c = 0.3*diff;
-        } else if (diff >= -(dist_to_next_car/2.0)){
+        } else if (diff >= -(dist_to_next_car/3.0)){
           c = 0.4*diff;
         } else if (diff >= -(dist_to_next_car/1.2)){
           c = 0.8*diff;

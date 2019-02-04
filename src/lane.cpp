@@ -4,7 +4,7 @@
 
 #include "lane.h"
 
-const double max_loohout_dist = 50.0;
+const double max_lookout_dist = 50.0;
 
 Lane::Lane(int number) {
   this->number = number;
@@ -24,7 +24,7 @@ double Lane::speed_cars_ahead(double s) {
   double speed = 0.0;
   double cars_count = 0.0;
   for (auto &car : cars) {
-    if (car.s >= s - 0.1 && car.s - s < max_loohout_dist) {
+    if (car.s >= s - 0.1 && car.s - s < max_lookout_dist) {
       speed += car.v;
       cars_count += 1.0;
     }

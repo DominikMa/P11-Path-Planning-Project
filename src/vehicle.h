@@ -18,14 +18,6 @@ class Vehicle {
   double d;
   double s;
 
-  /**
-   * Constructor
-   *
-   * @param id
-   * @param vx
-   * @param vy
-   * @param s
-   */
   Vehicle(double id, double vx, double vy, double s, double d);
   Vehicle(double id, double v, double s, double d);
   double calcSpeed(double vx, double vy);
